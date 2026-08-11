@@ -32,7 +32,9 @@ jobs:
           node-version: '22'
 
       - name: Setup Application
+        working-directory: backend
         run: composer setup
 
       - name: Run CI Checks
+        working-directory: backend
         run: composer ci:check

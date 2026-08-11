@@ -46,8 +46,8 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
             "@php artisan migrate --force",
-            "npm install",
-            "npm run build"
+            "npm --prefix ../frontend install",
+            "npm --prefix ../frontend run build"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -61,9 +61,9 @@
         ],
         "ci:check": [
             "Composer\\Config::disableProcessTimeout",
-            "npm run lint:check",
-            "npm run format:check",
-            "npm run types:check",
+            "npm --prefix ../frontend run lint:check",
+            "npm --prefix ../frontend run format:check",
+            "npm --prefix ../frontend run types:check",
             "@test"
         ],
         "types:check": [

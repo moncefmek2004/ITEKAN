@@ -1,0 +1,8 @@
+/node_modules
+/.env
+/.env.local
+/.env.*.local
+/.vite
+/resources/js/actions
+/resources/js/routes
+/resources/js/wayfinder
