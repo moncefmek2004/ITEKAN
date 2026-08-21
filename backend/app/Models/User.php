@@ -54,6 +54,11 @@ class User extends Authenticatable implements PasskeyUser
         return $this->hasOne(Cart::class);
     }
 
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function getOrCreateCart(): Cart
     {
         return $this->cart()->firstOrCreate(['user_id' => $this->id]);

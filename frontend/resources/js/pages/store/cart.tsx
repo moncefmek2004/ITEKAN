@@ -253,12 +253,14 @@ export default function Cart() {
                                     <span>{formatPrice(cart.total)}</span>
                                 </div>
 
-                                <Button
-                                    className="mt-6 w-full bg-[#DDBBFF] text-black hover:bg-[#c9a5f0]"
-                                    size="lg"
-                                >
-                                    Passer la commande
-                                </Button>
+                                <Link href="/checkout" className="mt-6 block">
+                                    <Button
+                                        className="w-full bg-[#DDBBFF] text-black hover:bg-[#c9a5f0]"
+                                        size="lg"
+                                    >
+                                        Passer la commande
+                                    </Button>
+                                </Link>
 
                                 <p className="mt-3 text-center text-xs text-muted-foreground">
                                     Paiement à la livraison
