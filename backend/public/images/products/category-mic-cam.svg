@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#331144"/>
+      <stop offset="100%" stop-color="#0a0a14"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#g)"/>
+  <circle cx="300" cy="280" r="130" fill="none" stroke="#d0b7ff" stroke-opacity="0.4" stroke-width="3"/>
+  <text x="300" y="320" font-family="Arial, sans-serif" font-size="110" fill="#d0b7ff" opacity="0.9" text-anchor="middle" dominant-baseline="middle">◉</text>
+  <text x="300" y="500" font-family="Arial, sans-serif" font-size="26" fill="#f5f0ff" text-anchor="middle" opacity="0.85">mic-cam</text>
+</svg>

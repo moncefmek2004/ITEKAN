@@ -35,13 +35,42 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $user = $request->user();
+        $cartCount = 0;
+
+        if ($user) {
+            $cart = $user->cart;
+            $cartCount = $cart ? $cart->getItemCount() : 0;
+        }
+
         return [
             ...parent::share($request),
             'name' => config('app.name'),
+            'locale' => app()->getLocale(),
+            'translations' => $this->translations(app()->getLocale()),
             'auth' => [
-                'user' => $request->user(),
+                'user' => $user,
             ],
+            'cartCount' => $cartCount,
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];
+    }
+
+    /**
+     * Load the UI translations for the given locale.
+     *
+     * @return array<string, string>
+     */
+    private function translations(string $locale): array
+    {
+        $file = lang_path($locale.'.json');
+
+        if (! is_file($file)) {
+            $file = lang_path('fr.json');
+        }
+
+        $content = file_get_contents($file);
+
+        return json_decode($content, true) ?? [];
     }
 }
